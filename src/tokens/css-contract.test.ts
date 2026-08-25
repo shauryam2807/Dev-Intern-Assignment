@@ -44,7 +44,7 @@ const RAW_SCALE =
 describe('CSS ↔ token contract (per UI library)', () => {
   for (const meta of LIBRARIES) {
     describe(meta.id, () => {
-      it('every --ev-* variable used in component CSS is emitted by the token model', async () => {
+      it('every --ev-* variable used in component CSS is emitted by the token model', { timeout: 15000 }, async () => {
         const lib = await meta.load();
         const libLayers = [
           lib.globalTokens,

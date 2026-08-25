@@ -51,6 +51,14 @@ describe('buildSemanticTokens', () => {
     );
   });
 
+  it('produces distinct gray scales for different gray tints', () => {
+    const sandTokens = tokenMap({ ...VOLT, grayTint: 'sand' });
+    const mauveTokens = tokenMap({ ...VOLT, grayTint: 'mauve' });
+    expect(sandTokens.get('gray.1')!.modes!.light).not.toBe(
+      mauveTokens.get('gray.1')!.modes!.light,
+    );
+  });
+
   it('pins status hues to the fixed global scales, not the accent', () => {
     expect(tokens.get('status.available')!.alias).toEqual({
       layer: 'global',

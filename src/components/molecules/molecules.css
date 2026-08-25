@@ -63,7 +63,7 @@
   box-shadow: var(--ev-shadow-3), inset 0 0 0 1px var(--ev-card-border);
   transform: translateY(-2px);
 }
-.ev-station-card--selected { box-shadow: var(--ev-shadow-3), inset 0 0 0 2px var(--ev-card-selected-boder); }
+.ev-station-card--selected { box-shadow: var(--ev-shadow-3), inset 0 0 0 2px var(--ev-card-selected-border); transform: translateY(-2px); }
 .ev-station-card--compact { gap: calc(8px * var(--ev-scaling)); }
 .ev-station-card__header { display: flex; justify-content: space-between; align-items: flex-start; gap: calc(12px * var(--ev-scaling)); }
 .ev-station-card__name { font-size: var(--ev-card-name-font); font-weight: var(--ev-font-weight-bold); color: var(--ev-color-text); line-height: var(--ev-line-height-4); }

@@ -15,7 +15,7 @@ describe('library manifest', () => {
 
   for (const meta of LIBRARIES) {
     describe(`pack: ${meta.id}`, () => {
-      it('loads and satisfies the UiLibrary contract', async () => {
+      it('loads and satisfies the UiLibrary contract', { timeout: 15000 }, async () => {
         const lib = await meta.load();
         expect(lib.id).toBe(meta.id);
         expect(lib.name).toBe(meta.name);

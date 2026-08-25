@@ -86,7 +86,7 @@ export function ThemeProvider({
 
   const semantic = useMemo(() => buildSemantic(brand), [buildSemantic, brand]);
   const layers = useMemo(
-    () => [semantic, globalTokens, ...extraLayers],
+    () => [globalTokens, semantic, ...extraLayers],
     [globalTokens, semantic, extraLayers],
   );
   const emitted = useMemo(
