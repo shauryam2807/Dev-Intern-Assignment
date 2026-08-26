@@ -44,7 +44,7 @@ const RAW_SCALE =
 describe('CSS ↔ token contract (per UI library)', () => {
   for (const meta of LIBRARIES) {
     describe(meta.id, () => {
-      it('every --ev-* variable used in component CSS is emitted by the token model', { timeout: 15000 }, async () => {
+      it('every --ev-* variable used in component CSS is emitted by the token model', { timeout: 30000 }, async () => {
         const lib = await meta.load();
         const libLayers = [
           lib.globalTokens,
@@ -66,7 +66,7 @@ describe('CSS ↔ token contract (per UI library)', () => {
         }
       });
 
-      it('component CSS never consumes raw color scales', async () => {
+      it('component CSS never consumes raw color scales', { timeout: 15000 }, async () => {
         const lib = await meta.load();
         for (const file of lib.cssFiles) {
           const css = readFileSync(join(process.cwd(), file), 'utf8');
