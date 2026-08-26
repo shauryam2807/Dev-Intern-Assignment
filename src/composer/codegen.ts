@@ -169,9 +169,15 @@ export function puckDataToJsx(
   }
   const fixtureNames = [...ctx.fixtures].sort();
   if (fixtureNames.length) {
-    imports.push(
-      `import { ${fixtureNames.join(', ')} } from '${pack.fixtures[fixtureNames[0]]}';`,
-    );
+    const bySource: Record<string, string[]> = {};
+    for (const name of fixtureNames) {
+      const source = pack.fixtures[name];
+      if (!bySource[source]) bySource[source] = [];
+      bySource[source].push(name);
+    }
+    for (const [source, names] of Object.entries(bySource)) {
+      imports.push(`import { ${names.join(', ')} } from '${source}';`);
+    }
   }
 
   const body =
